@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="HeroinesTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#ff85c6</item>
+        <item name="colorPrimaryDark">#aa678e</item>
+    </style>
+
+</resources>
