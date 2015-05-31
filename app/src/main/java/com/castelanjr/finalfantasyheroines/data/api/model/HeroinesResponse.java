@@ -1,4 +1,4 @@
-package castelanjr.com.finalfantasyheroines.data.api.model;
+package com.castelanjr.finalfantasyheroines.data.api.model;
 
 import java.util.List;
 

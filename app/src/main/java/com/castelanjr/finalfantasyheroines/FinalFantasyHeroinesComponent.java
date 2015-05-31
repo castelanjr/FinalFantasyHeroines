@@ -1,8 +1,9 @@
-package castelanjr.com.finalfantasyheroines;
+package com.castelanjr.finalfantasyheroines;
+
+import com.castelanjr.finalfantasyheroines.data.DataModule;
 
 import javax.inject.Singleton;
 
-import castelanjr.com.finalfantasyheroines.data.DataModule;
 import dagger.Component;
 
 /**

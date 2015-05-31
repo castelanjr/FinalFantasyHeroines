@@ -1,4 +1,4 @@
-package castelanjr.com.finalfantasyheroines.data.api.util;
+package com.castelanjr.finalfantasyheroines.data.api.util;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

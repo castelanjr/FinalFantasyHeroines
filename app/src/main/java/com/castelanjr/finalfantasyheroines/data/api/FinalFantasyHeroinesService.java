@@ -1,6 +1,6 @@
-package castelanjr.com.finalfantasyheroines.data.api;
+package com.castelanjr.finalfantasyheroines.data.api;
 
-import castelanjr.com.finalfantasyheroines.data.api.model.HeroinesResponse;
+import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
 import retrofit.http.GET;
 import rx.Observable;
 

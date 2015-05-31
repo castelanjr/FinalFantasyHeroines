@@ -1,4 +1,4 @@
-package castelanjr.com.finalfantasyheroines.data;
+package com.castelanjr.finalfantasyheroines.data;
 
 import android.app.Application;
 import android.content.SharedPreferences;
@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso;
 
 import javax.inject.Singleton;
 
-import castelanjr.com.finalfantasyheroines.data.api.ApiModule;
+import com.castelanjr.finalfantasyheroines.data.api.ApiModule;
 import dagger.Module;
 import dagger.Provides;
 import timber.log.Timber;

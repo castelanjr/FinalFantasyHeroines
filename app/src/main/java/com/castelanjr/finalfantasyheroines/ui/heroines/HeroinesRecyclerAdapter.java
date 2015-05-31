@@ -1,4 +1,4 @@
-package castelanjr.com.finalfantasyheroines.ui.heroines;
+package com.castelanjr.finalfantasyheroines.ui.heroines;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.castelanjr.finalfantasyheroines.R;
+import com.castelanjr.finalfantasyheroines.data.api.model.Heroine;
+import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
 import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
@@ -15,9 +18,6 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import castelanjr.com.finalfantasyheroines.R;
-import castelanjr.com.finalfantasyheroines.data.api.model.Heroine;
-import castelanjr.com.finalfantasyheroines.data.api.model.HeroinesResponse;
 import rx.functions.Action1;
 
 /**

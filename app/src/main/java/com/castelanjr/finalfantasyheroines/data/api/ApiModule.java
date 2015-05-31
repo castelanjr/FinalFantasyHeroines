@@ -1,11 +1,11 @@
-package castelanjr.com.finalfantasyheroines.data.api;
+package com.castelanjr.finalfantasyheroines.data.api;
 
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
 
 import javax.inject.Singleton;
 
-import castelanjr.com.finalfantasyheroines.data.api.util.AutoParcelAdapterFactory;
+import com.castelanjr.finalfantasyheroines.data.api.util.AutoParcelAdapterFactory;
 import dagger.Module;
 import dagger.Provides;
 import retrofit.Endpoint;

@@ -1,4 +1,4 @@
-package castelanjr.com.finalfantasyheroines;
+package com.castelanjr.finalfantasyheroines;
 
 import android.app.Application;
 

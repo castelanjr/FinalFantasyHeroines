@@ -1,11 +1,11 @@
-package castelanjr.com.finalfantasyheroines.data.api.model;
+package com.castelanjr.finalfantasyheroines.data.api.model;
 
 import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 
 import auto.parcel.AutoParcel;
-import castelanjr.com.finalfantasyheroines.data.api.util.AutoGson;
+import com.castelanjr.finalfantasyheroines.data.api.util.AutoGson;
 
 /**
  * Created by angelocastelanjr on 5/30/15.

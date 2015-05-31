@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="castelanjr.com.finalfantasyheroines" >
+    package="com.castelanjr.finalfantasyheroines" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,7 +11,7 @@
         android:theme="@style/HeroinesTheme"
         android:name=".FinalFantasyHeroinesApp">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.castelanjr.finalfantasyheroines.ui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

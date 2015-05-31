@@ -1,6 +1,6 @@
-package castelanjr.com.finalfantasyheroines;
+package com.castelanjr.finalfantasyheroines;
 
-import castelanjr.com.finalfantasyheroines.ui.MainActivity;
+import com.castelanjr.finalfantasyheroines.ui.MainActivity;
 
 /**
  * Created by angelocastelanjr on 5/30/15.

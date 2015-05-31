@@ -1,4 +1,4 @@
-package castelanjr.com.finalfantasyheroines.ui;
+package com.castelanjr.finalfantasyheroines.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -8,17 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.castelanjr.finalfantasyheroines.FinalFantasyHeroinesApp;
+import com.castelanjr.finalfantasyheroines.R;
+import com.castelanjr.finalfantasyheroines.data.api.FinalFantasyHeroinesService;
+import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
+import com.castelanjr.finalfantasyheroines.ui.heroines.HeroinesRecyclerAdapter;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import castelanjr.com.finalfantasyheroines.FinalFantasyHeroinesApp;
-import castelanjr.com.finalfantasyheroines.R;
-import castelanjr.com.finalfantasyheroines.data.api.FinalFantasyHeroinesService;
-import castelanjr.com.finalfantasyheroines.data.api.model.HeroinesResponse;
-import castelanjr.com.finalfantasyheroines.ui.heroines.HeroinesRecyclerAdapter;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
