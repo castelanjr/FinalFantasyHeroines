@@ -1,5 +1,6 @@
 package com.castelanjr.finalfantasyheroines;
 
+import com.castelanjr.finalfantasyheroines.ui.DetailsActivity;
 import com.castelanjr.finalfantasyheroines.ui.MainActivity;
 
 /**
@@ -8,4 +9,5 @@ import com.castelanjr.finalfantasyheroines.ui.MainActivity;
 public interface FinalFantasyHeroinesGraph {
     void inject(FinalFantasyHeroinesApp app);
     void inject(MainActivity activity);
+    void inject(DetailsActivity activity);
 }

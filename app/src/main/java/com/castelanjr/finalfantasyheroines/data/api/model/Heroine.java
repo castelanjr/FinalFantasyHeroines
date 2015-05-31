@@ -4,8 +4,9 @@ import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 
-import auto.parcel.AutoParcel;
 import com.castelanjr.finalfantasyheroines.data.api.util.AutoGson;
+
+import auto.parcel.AutoParcel;
 
 /**
  * Created by angelocastelanjr on 5/30/15.
@@ -22,6 +23,7 @@ public abstract class Heroine implements Parcelable {
     public abstract String color();
     public abstract String game();
 
+    @SuppressWarnings("ResourceType")
     @ColorInt public int getColor() {
         return color() == null ? Color.WHITE : Color.parseColor(color());
     }

@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.castelanjr.finalfantasyheroines.R;
 import com.castelanjr.finalfantasyheroines.data.api.model.Heroine;
 import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
+import com.castelanjr.finalfantasyheroines.util.widget.ForegroundLinearLayout;
 import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
@@ -28,14 +28,16 @@ public class HeroinesRecyclerAdapter extends RecyclerView.Adapter<HeroinesRecycl
 
     private List<Heroine> heroines = Collections.emptyList();
     private final Picasso picasso;
+    private final OnHeroineSelectedListener listener;
 
-    public HeroinesRecyclerAdapter(Picasso picasso) {
+    public HeroinesRecyclerAdapter(Picasso picasso, OnHeroineSelectedListener listener) {
         this.picasso = picasso;
+        this.listener = listener;
     }
 
     @Override
     public void call(HeroinesResponse response) {
-        if (response != null || response.heroines == null) {
+        if (response != null && response.heroines != null) {
             this.heroines = response.heroines;
         } else {
             this.heroines = Collections.emptyList();
@@ -62,7 +64,7 @@ public class HeroinesRecyclerAdapter extends RecyclerView.Adapter<HeroinesRecycl
 
     class ViewHolder extends RecyclerView.ViewHolder {
         @InjectView(R.id.layout_heroine)
-        LinearLayout layoutHeroine;
+        ForegroundLinearLayout layoutHeroine;
 
         @InjectView(R.id.image_heroine)
         ImageView imageHeroine;
@@ -70,15 +72,28 @@ public class HeroinesRecyclerAdapter extends RecyclerView.Adapter<HeroinesRecycl
         @InjectView(R.id.text_name)
         TextView textName;
 
+        private Heroine heroine;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onHeroineSelected(heroine, imageHeroine);
+                }
+            });
         }
 
         public void bindTo(Heroine heroine) {
+            this.heroine = heroine;
             layoutHeroine.setBackgroundColor(heroine.getColor());
             textName.setText(heroine.name());
             picasso.load(heroine.avatar()).into(imageHeroine);
         }
+    }
+
+    public interface OnHeroineSelectedListener {
+        void onHeroineSelected(Heroine heroine, ImageView avatar);
     }
 }

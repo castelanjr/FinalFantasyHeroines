@@ -1,19 +1,22 @@
 package com.castelanjr.finalfantasyheroines.ui;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.castelanjr.finalfantasyheroines.FinalFantasyHeroinesApp;
 import com.castelanjr.finalfantasyheroines.R;
 import com.castelanjr.finalfantasyheroines.data.api.FinalFantasyHeroinesService;
+import com.castelanjr.finalfantasyheroines.data.api.model.Heroine;
 import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
 import com.castelanjr.finalfantasyheroines.ui.heroines.HeroinesRecyclerAdapter;
-import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
@@ -23,20 +26,14 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.subscriptions.CompositeSubscription;
-import timber.log.Timber;
 
-public class MainActivity extends AppCompatActivity {
-
-    @Inject
-    Picasso picasso;
+public class MainActivity extends BaseActivity {
 
     @Inject
     FinalFantasyHeroinesService service;
 
     @InjectView(R.id.grid)
     RecyclerView grid;
-
-    private HeroinesRecyclerAdapter adapter;
 
     private final CompositeSubscription subscriptions = new CompositeSubscription();
 
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        adapter = new HeroinesRecyclerAdapter(picasso);
+        HeroinesRecyclerAdapter adapter = new HeroinesRecyclerAdapter(picasso, heroineSelectedListener);
         grid.setLayoutManager(new GridLayoutManager(this, 2));
         grid.setAdapter(adapter);
 
@@ -67,30 +64,24 @@ public class MainActivity extends AppCompatActivity {
     private final Action1<Throwable> actionError = new Action1<Throwable>() {
         @Override
         public void call(Throwable throwable) {
-            Timber.e(throwable, "Failed to get heroines");
             Snackbar.make(grid, "Failed to get heroines", Snackbar.LENGTH_LONG).show();
         }
     };
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private final HeroinesRecyclerAdapter.OnHeroineSelectedListener heroineSelectedListener
+            = new HeroinesRecyclerAdapter.OnHeroineSelectedListener() {
+        @Override
+        public void onHeroineSelected(Heroine heroine, ImageView avatar) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(MainActivity.this, DetailsActivity.class)
+                    .putExtra(DetailsActivity.HEROINE, heroine);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ActivityOptionsCompat options = ActivityOptionsCompat
+                        .makeSceneTransitionAnimation(MainActivity.this, avatar, "avatar");
+                startActivity(intent, options.toBundle());
+            } else {
+                startActivity(intent);
+            }
         }
-
-        return super.onOptionsItemSelected(item);
-    }
+    };
 }
