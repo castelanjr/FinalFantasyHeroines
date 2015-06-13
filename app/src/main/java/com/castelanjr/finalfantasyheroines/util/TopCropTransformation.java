@@ -1,4 +1,4 @@
-package com.castelanjr.finalfantasyheroines.util.widget;
+package com.castelanjr.finalfantasyheroines.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;

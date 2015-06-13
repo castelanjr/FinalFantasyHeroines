@@ -2,9 +2,8 @@
 
     <style name="Theme.Heroines" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#ff85c6</item>
-        <item name="colorPrimaryDark">#aa678e</item>
-        <item name="colorAccent">#5cff6f</item>
-        <item name="android:windowContentTransitions">true</item>
+        <item name="colorPrimaryDark">#d472a6</item>
+        <item name="colorAccent">#25d15e</item>
     </style>
 
     <style name="Theme.Heroines.NoActionBar" parent="Theme.Heroines">
@@ -12,6 +11,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="Theme.Heroines.OverlayActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">

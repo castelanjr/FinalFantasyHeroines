@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="final_fantasy">Final Fantasy %s</string>
+    <string name="ability">Ability</string>
+    <string name="Personality">Personality</string>
+    <string name="game">Game</string>
 </resources>

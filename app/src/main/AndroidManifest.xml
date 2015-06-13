@@ -19,8 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.DetailsActivity"
-            android:theme="@style/Theme.Heroines.NoActionBar"/>
+            android:theme="@style/Theme.Heroines.NoActionBar"
+            android:parentActivityName=".ui.MainActivity"/>
     </application>
 
 </manifest>
