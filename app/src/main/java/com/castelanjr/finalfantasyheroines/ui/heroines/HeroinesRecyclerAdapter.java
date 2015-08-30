@@ -16,8 +16,8 @@ import com.squareup.picasso.Picasso;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import rx.functions.Action1;
 
 /**
@@ -63,20 +63,20 @@ public class HeroinesRecyclerAdapter extends RecyclerView.Adapter<HeroinesRecycl
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.layout_heroine)
+        @Bind(R.id.layout_heroine)
         ForegroundLinearLayout layoutHeroine;
 
-        @InjectView(R.id.image_heroine)
+        @Bind(R.id.image_heroine)
         ImageView imageHeroine;
 
-        @InjectView(R.id.text_name)
+        @Bind(R.id.text_name)
         TextView textName;
 
         private Heroine heroine;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

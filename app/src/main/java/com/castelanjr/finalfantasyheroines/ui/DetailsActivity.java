@@ -13,9 +13,10 @@ import com.castelanjr.finalfantasyheroines.R;
 import com.castelanjr.finalfantasyheroines.data.api.model.Heroine;
 import com.castelanjr.finalfantasyheroines.util.CircleTransformation;
 import com.squareup.picasso.Callback;
+import com.squareup.picasso.Transformation;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by angelocastelanjr on 5/31/15.
@@ -24,38 +25,40 @@ public class DetailsActivity extends BaseActivity {
 
     public static final String HEROINE = "heroine";
 
-    @InjectView(R.id.appbarlayout)
+    @Bind(R.id.appbarlayout)
     AppBarLayout appBarLayout;
 
-    @InjectView(R.id.collapsingtoolbarlayout)
+    @Bind(R.id.collapsingtoolbarlayout)
     CollapsingToolbarLayout collapsingToolbarLayout;
 
-    @InjectView(R.id.toolbar)
+    @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    @InjectView(R.id.text_personality)
+    @Bind(R.id.text_personality)
     TextView textDescription;
 
-    @InjectView(R.id.text_ability)
+    @Bind(R.id.text_ability)
     TextView textAbility;
 
-    @InjectView(R.id.text_game)
+    @Bind(R.id.text_game)
     TextView textGame;
 
-    @InjectView(R.id.image_heroine)
+    @Bind(R.id.image_heroine)
     ImageView imageCover;
 
-    @InjectView(R.id.image_avatar)
+    @Bind(R.id.image_avatar)
     ImageView imageAvatar;
 
     private Heroine heroine;
+
+    private final Transformation transformation = new CircleTransformation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FinalFantasyHeroinesApp.get(this).component().inject(this);
         setContentView(R.layout.activity_details);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -76,7 +79,7 @@ public class DetailsActivity extends BaseActivity {
         textAbility.setText(heroine.ability());
         picasso.load(heroine.avatar()).into(imageCover);
         picasso.load(heroine.avatar())
-                .transform(new CircleTransformation())
+                .transform(transformation)
                 .into(imageAvatar, new Callback() {
                     @Override
                     public void onSuccess() {

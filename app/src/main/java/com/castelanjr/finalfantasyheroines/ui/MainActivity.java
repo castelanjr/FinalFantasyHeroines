@@ -15,11 +15,12 @@ import com.castelanjr.finalfantasyheroines.data.api.FinalFantasyHeroinesService;
 import com.castelanjr.finalfantasyheroines.data.api.model.Heroine;
 import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
 import com.castelanjr.finalfantasyheroines.ui.heroines.HeroinesRecyclerAdapter;
+import com.trello.rxlifecycle.ActivityEvent;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -30,7 +31,7 @@ public class MainActivity extends BaseActivity {
     @Inject
     FinalFantasyHeroinesService service;
 
-    @InjectView(R.id.grid)
+    @Bind(R.id.grid)
     RecyclerView grid;
 
     private final CompositeSubscription subscriptions = new CompositeSubscription();
@@ -40,16 +41,20 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         FinalFantasyHeroinesApp.get(this).component().inject(this);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         HeroinesRecyclerAdapter adapter = new HeroinesRecyclerAdapter(picasso, heroineSelectedListener);
         grid.setLayoutManager(new GridLayoutManager(this, 2));
         grid.setAdapter(adapter);
 
-        subscriptions.add(service.getHeroines()
+        Observable<HeroinesResponse> heroinesObservable = service.getHeroines()
+                .cache()
+                .compose(this.<HeroinesResponse>bindUntilEvent(ActivityEvent.PAUSE))
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(actionError)
-                .onErrorResumeNext(Observable.<HeroinesResponse>empty())
+                .onErrorResumeNext(Observable.<HeroinesResponse>empty());
+
+        subscriptions.add(heroinesObservable
                 .subscribe(adapter));
     }
 
