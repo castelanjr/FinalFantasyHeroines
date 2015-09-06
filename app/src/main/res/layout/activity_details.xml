@@ -169,8 +169,8 @@
                 android:layout_alignParentBottom="true"
                 android:minHeight="?attr/actionBarSize"
                 android:background="@android:color/transparent"
-                app:contentScrim="?attr/colorPrimary"
                 android:theme="@style/Theme.Heroines.OverlayActionBar"
+                app:contentScrim="?attr/colorPrimary"
                 app:layout_collapseMode="pin"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>

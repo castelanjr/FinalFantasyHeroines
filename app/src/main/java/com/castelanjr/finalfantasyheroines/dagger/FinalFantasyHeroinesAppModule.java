@@ -1,6 +1,8 @@
-package com.castelanjr.finalfantasyheroines;
+package com.castelanjr.finalfantasyheroines.dagger;
 
 import android.app.Application;
+
+import com.castelanjr.finalfantasyheroines.FinalFantasyHeroinesApp;
 
 import javax.inject.Singleton;
 

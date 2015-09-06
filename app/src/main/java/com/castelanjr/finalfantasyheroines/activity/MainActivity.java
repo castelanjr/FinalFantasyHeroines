@@ -1,4 +1,4 @@
-package com.castelanjr.finalfantasyheroines.ui;
+package com.castelanjr.finalfantasyheroines.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 import com.castelanjr.finalfantasyheroines.FinalFantasyHeroinesApp;
@@ -31,6 +32,9 @@ public class MainActivity extends BaseActivity {
     @Inject
     FinalFantasyHeroinesService service;
 
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+
     @Bind(R.id.grid)
     RecyclerView grid;
 
@@ -42,6 +46,8 @@ public class MainActivity extends BaseActivity {
         FinalFantasyHeroinesApp.get(this).component().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
 
         HeroinesRecyclerAdapter adapter = new HeroinesRecyclerAdapter(picasso, heroineSelectedListener);
         grid.setLayoutManager(new GridLayoutManager(this, 2));

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.castelanjr.finalfantasyheroines.R;
 import com.castelanjr.finalfantasyheroines.data.api.model.Heroine;
 import com.castelanjr.finalfantasyheroines.data.api.model.HeroinesResponse;
-import com.castelanjr.finalfantasyheroines.util.widget.ForegroundLinearLayout;
+import com.castelanjr.finalfantasyheroines.ui.widget.ForegroundLinearLayout;
 import com.squareup.picasso.Picasso;
 
 import java.util.Collections;

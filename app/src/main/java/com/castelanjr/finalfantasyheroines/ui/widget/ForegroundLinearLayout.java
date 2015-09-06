@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.castelanjr.finalfantasyheroines.util.widget;
+package com.castelanjr.finalfantasyheroines.ui.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;

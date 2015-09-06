@@ -1,4 +1,4 @@
-package com.castelanjr.finalfantasyheroines.ui;
+package com.castelanjr.finalfantasyheroines.activity;
 
 import android.os.Build;
 import android.os.Bundle;

@@ -1,5 +1,6 @@
-package com.castelanjr.finalfantasyheroines;
+package com.castelanjr.finalfantasyheroines.dagger;
 
+import com.castelanjr.finalfantasyheroines.FinalFantasyHeroinesApp;
 import com.castelanjr.finalfantasyheroines.data.DataModule;
 
 import javax.inject.Singleton;
@@ -14,7 +15,7 @@ import dagger.Component;
 public interface FinalFantasyHeroinesComponent extends FinalFantasyHeroinesGraph {
 
     final class Initializer {
-        static FinalFantasyHeroinesGraph init(FinalFantasyHeroinesApp app) {
+        public static FinalFantasyHeroinesGraph init(FinalFantasyHeroinesApp app) {
             return DaggerFinalFantasyHeroinesComponent
                     .builder()
                     .finalFantasyHeroinesAppModule(new FinalFantasyHeroinesAppModule(app))

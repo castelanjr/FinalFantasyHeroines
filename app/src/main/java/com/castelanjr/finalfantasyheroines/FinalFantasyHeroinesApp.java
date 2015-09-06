@@ -3,6 +3,9 @@ package com.castelanjr.finalfantasyheroines;
 import android.app.Application;
 import android.content.Context;
 
+import com.castelanjr.finalfantasyheroines.dagger.FinalFantasyHeroinesComponent;
+import com.castelanjr.finalfantasyheroines.dagger.FinalFantasyHeroinesGraph;
+
 /**
  * Created by angelocastelanjr on 5/30/15.
  */
